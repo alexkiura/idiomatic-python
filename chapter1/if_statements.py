@@ -42,7 +42,7 @@ name = 'Tom'
 is_generic_name = name in ('Tom', 'Dick', 'Harry')
 
 
-# comparing directly to True, False or None
+# Scenario 4: comparing directly to True, False or None
 # harmful
 
 def number_of_evil_robots_attacking():
@@ -75,3 +75,18 @@ if should_raise_shields():
     print('Shields raised')
 else:
     print('Safe! No giant robots attacking')
+
+# Scenario 4: comparing directly to True, False or None
+# harmful
+foo = True
+value = 0
+
+if foo:
+    value = 1
+
+print value
+
+# Idiomatic
+foo = True
+value = 1 if foo else 0
+print(value)

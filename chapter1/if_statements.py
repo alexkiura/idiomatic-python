@@ -28,3 +28,15 @@ print address
 if name:
     pritn(name)
 print(address)
+
+
+# Scenario 3: repeating variable name in compound if statementn
+# harmful
+is_generic_name = False
+name = 'Tom'
+if name == 'Tom' or name == 'Dick' or name == 'Harry':
+    is_generic_name = True
+
+# Idiomatic
+name = 'Tom'
+is_generic_name = name in ('Tom', 'Dick', 'Harry')

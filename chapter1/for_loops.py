@@ -26,3 +26,27 @@ while index < len(my_list):
 my_list = ['Larry', 'Moe', 'Curly']
 for element in my_list:
     print(element)
+
+
+# Scenario 3: using else to execute code after a for loop concludes
+# harmful
+for user in get_all_users():
+    has_malformed_email_address = False
+    print('Checking {}'.fomat(user))
+    for email_address in user.email_addresses:
+        if email_is_malformed(email_address):
+            print('Has a malformed email address')
+            break
+    if not has_malformed_email_address:
+        print('All email addesses are valid')
+
+
+# idiomatic
+for user in get_all_users():
+    print('Checking {}'.format(user))
+    for email in user.email_addresses:
+        if email_is_malformed(email):
+            print('Has a malformed email address')
+            break
+    else:
+        print('All email addesses are valid')

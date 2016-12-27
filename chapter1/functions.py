@@ -11,9 +11,9 @@ print(f(2))
 print(f(3))
 
 # output is:
-[1]
-[1, 2]
-[1, 2, 3]
+# [1]
+# [1, 2]
+# [1, 2, 3]
 
 # Idiomatic
 def f(a, L=[]):
@@ -27,6 +27,20 @@ print(f(2))
 print(f(3))
 
 # output is:
-[1]
-[2]
-[3]
+# [1]
+# [2]
+# [3]
+
+# Scenario 2: using return to evaluate expressions in additon to return values
+# harmful
+def all_equal(a, b, c):
+    result = False
+    if a == b == c:
+        result = True
+    return result
+
+# Idiomatic
+def all_equal(a, b, c):
+    return a == b == c
+
+# idiomatic

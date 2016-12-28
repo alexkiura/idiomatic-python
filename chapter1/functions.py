@@ -43,4 +43,23 @@ def all_equal(a, b, c):
 def all_equal(a, b, c):
     return a == b == c
 
-# idiomatic
+# Scenario 3: using keyword args for optional arguments.
+# harmful
+def print_list(list_value, sep):
+    print('{}'.format(sep).join(list_value))
+
+the_list = ['a', 'b', 'c']
+the_other_list = ['Jeff', 'Hates', 'Java']
+print_list(the_list, '')
+print_list(the_other_list, ' ')
+print_list(the_other_list, ', ')
+
+# Idiomatic
+def print_list(list_value, sep=' '):
+    print('{}'.format(sep).join(list_value))
+
+the_list = ['a', 'b', 'c']
+the_other_list = ['Jeff', 'Hates', 'Java']
+print_list(the_list)
+print_list(the_other_list)
+print_list(the_other_list, ', ')

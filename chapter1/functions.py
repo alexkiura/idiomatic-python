@@ -86,3 +86,48 @@ def add(x, y):
     return x + y
 
 add(3, 2)
+
+# Scenario 5: treating functions as values
+# harmful
+def print_addition_table():
+    for x in range(0,5):
+        for y in range(0, 5):
+            if x <= 4:
+                print(x + y, end=' ')
+            else:
+                print('')
+def print_subtraction_table():
+    for x in range(0,5):
+        for y in range(0, 5):
+            if x >= 1:
+                print(x - y, end=' ')
+            else:
+                print('')
+def print_multiplication_table():
+    for x in range(0,5):
+        for y in range(0, 5):
+            if x <= 4:
+                print(x * y, end=' ')
+            else:
+                print('')
+def print_division_table():
+    for x in range(0,5):
+        for y in range(0, 5):
+            if x <= 4:
+                print(x / y, end=' ')
+            else:
+                print('')
+
+# Idiomatic
+import operator as op
+
+def print_table(operator):
+    for x in range(0,5):
+        for y in range(0, 5):
+            if x <= 4:
+                print(str(operator(x, y)), end=' ')
+            else:
+                print('')
+
+for operator in (op.add, op.sub, op.mul, op.itruediv):
+    print_table(operator)

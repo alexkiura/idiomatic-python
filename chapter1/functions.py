@@ -63,3 +63,26 @@ the_other_list = ['Jeff', 'Hates', 'Java']
 print_list(the_list)
 print_list(the_other_list)
 print_list(the_other_list, ', ')
+
+# Scenario 4: using *args and *kwargs to accept arbitrary arguments
+# harmful
+def wrap_add_for_console_output(x, y):
+    print('-----------------------')
+    print(str(x + y))
+    print('-----------------------')
+
+wrap_add_for_console_output(2, 3)
+
+# Idiomatic
+def for_console_output(func):
+    def wrapper(*args, **kwargs):
+        print('-----------------------')
+        print(str(func(*args, **kwargs)))
+        print('-----------------------')
+    return wrapper
+
+@for_console_output
+def add(x, y):
+    return x + y
+
+add(3, 2)

@@ -21,3 +21,20 @@ for result in result_list:
 # Idiomatic
 result_list = ['True', 'False', 'File not found']
 result_string = ''.join(result_list)
+
+# Scenario 3: using ord to get ASCII code of a char and vice versa
+# harmful
+hash_value = 0
+character_hash = {
+    'a': 97,
+    'b': 98,
+    'c': 99,
+    # .....
+    'y': 121,
+    'z': 122,
+}
+
+for e in some_string:
+    hash_value += ord(e)
+
+return hash_value

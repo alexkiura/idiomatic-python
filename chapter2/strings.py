@@ -38,3 +38,19 @@ for e in some_string:
     hash_value += ord(e)
 
 return hash_value
+
+# Scenario 4: prefer str.format for formatting strings
+# harmful
+def_formatted_user_info_worst(user):
+    return 'Name: ' + user.name + ', Age: ' + \
+        str(user.age) + ' Sex: ' + user.sex
+
+def get_formatted_user_info_better(user):
+    return 'Name: %s, Age: %i, Sex: %c' % (user.name, user.age, user.sex)
+
+# Idiomatic
+def get_formatted_user_info(user):
+    output = 'Name: {user.name}, Age: {user.age}, Sex: {user.sex}' \
+        .format(user=user)
+    # user has to be an object
+    return output

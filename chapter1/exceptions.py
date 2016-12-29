@@ -23,3 +23,27 @@ def get_log_level(config_dict):
     except KeyError:
         # if either value wasn't present a KeyError will be raised
         return None
+
+# Scenario 2: using bare exception clauses (not catching specific exceptions)
+# harmful
+import requests
+def get_json_response(url):
+    try:
+        response = request.get(url)
+        return response.json()
+    except:
+        print('Oops! Something went wrong')
+        return None
+
+# Idiomatic
+import requests
+# Ignoring the exception
+def get_json_response(url):
+    return requests.get(url).json()
+
+# Taking account of the exception
+def alternate_get_json_response():
+    try:
+        return requests.get(url).json()
+    except:
+        raise

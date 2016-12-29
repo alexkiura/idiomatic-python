@@ -9,3 +9,16 @@ z = 'foo'
 
 # Idiomatic
 x = y = z = 'foo'
+
+# Scenario 2: using a temporary variable when swapping two variables
+# harmful
+foo = 'Foo'
+bar = 'Bar'
+temp = foo
+foo = bar
+bar = temp
+
+# Idiomatic
+foo = 'Foo'
+bar = 'Bar'
+foo, bar = bar, foo

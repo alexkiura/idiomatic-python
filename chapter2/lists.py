@@ -49,3 +49,16 @@ for element in the_list:
 # Idiomatic
 the_list = list(range(1, 11))
 the_sum = sum(the_list)
+
+# Scenario 5: using all to check if all elements of an iterable are true
+# harmful
+def contains_zero(iterable):
+    for element in iterable:
+        if element == 0:
+            return True
+    return False
+
+# Idiomatic
+def contains_zero(iterable):
+    # 0 is falsy so all(iterable) works?
+    return not all(iterable)

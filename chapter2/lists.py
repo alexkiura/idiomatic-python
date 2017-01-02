@@ -25,3 +25,16 @@ def get_suffix(word):
 # Idiomatic
 def get_suffix(word):
     return word[-2:]
+
+# Scenatio 3: preferring list comprehensions to map and filter
+# harmful
+the_list = list(range(1, 11))
+def is_odd(number):
+    return number % 2 == 1
+
+odd_numbers = filter(is_odd, the_list)
+odd_numbers_times_two = list(map(lambda x: x * 2, odd_numbers))
+
+# Idiomatic
+the_list = list(range(1, 11))
+odd_numbers_times_two = [n * 2 for n in the_list if n % 2 == 1]

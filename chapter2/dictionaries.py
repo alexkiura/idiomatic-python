@@ -2,6 +2,8 @@
 
 # Scenario 1: using dict as a substitute for a switch ...case statement
 # harmful
+
+
 def apply_operation(left_operand, right_operand, operator):
     if operator == '+':
         return left_operand + right_operand
@@ -30,3 +32,15 @@ else:
 
 # Idiomatic
 log_severity = configuration.get('severity', 'Info')
+
+# Scenario 3: using dict comprehensions
+# harmful
+user_email = {}
+for user in users_list:
+    if user.email:
+        user_email[user.name] = user.email
+
+
+# Idiomatic
+user_email = {user.name: user.email
+              for user in users_list if user.email1}

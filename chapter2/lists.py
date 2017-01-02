@@ -14,21 +14,30 @@ some_list = [element + 5 for element in some_other_list if is_prime(element)]
 
 # Scenario 2: making use of negative indices
 # harmful
+
+
 def get_suffix(word):
     word_length = len(word)
     return word[word_length - 2:]
+
+
 # shorter harmful
 def get_suffix(word):
     word_length = len(word)
     return [len(word) - 2:]
 
+
 # Idiomatic
 def get_suffix(word):
     return word[-2:]
 
+
 # Scenatio 3: preferring list comprehensions to map and filter
 # harmful
+
 the_list = list(range(1, 11))
+
+
 def is_odd(number):
     return number % 2 == 1
 
@@ -50,6 +59,7 @@ for element in the_list:
 the_list = list(range(1, 11))
 the_sum = sum(the_list)
 
+
 # Scenario 5: using all to check if all elements of an iterable are true
 # harmful
 def contains_zero(iterable):
@@ -57,6 +67,7 @@ def contains_zero(iterable):
         if element == 0:
             return True
     return False
+
 
 # Idiomatic
 def contains_zero(iterable):

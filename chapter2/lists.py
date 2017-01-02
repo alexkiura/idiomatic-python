@@ -38,3 +38,14 @@ odd_numbers_times_two = list(map(lambda x: x * 2, odd_numbers))
 # Idiomatic
 the_list = list(range(1, 11))
 odd_numbers_times_two = [n * 2 for n in the_list if n % 2 == 1]
+
+# Scenario 4: using the inbuilt function sum to sum elements of a list
+# harmful
+the_list = list(range(1, 11))
+the_sum = 0
+for element in the_list:
+    the_sum += element
+
+# Idiomatic
+the_list = list(range(1, 11))
+the_sum = sum(the_list)

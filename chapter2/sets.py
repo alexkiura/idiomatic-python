@@ -27,3 +27,38 @@ for user in users:
 
 # Idiomatic
 users_first_names = {user.first_name for user in users}
+
+# Scenario 3: using sets to eliminate duplicate entries
+# harmful
+unique_surnames = []
+# Generating a list of unique user names
+for surname in surnames:
+    if surname not in unique_surnames:
+        unique_surnames.append(surname)
+
+def display(elements, output_format='html'):
+    if output_format == 'std_out':
+        for element in elements:
+            print(element)
+    elif output_format == 'html':
+        as_html = '<ul>'
+        for element in elements:
+            as_html += '<li>{}</li>'.format(element)
+        return as_html + '</ul>'
+    else:
+        raise RuntimeError('Uknown format {}'.format(output_format))
+
+# Idiomatic
+unique_surnames = set(surnames)
+
+def display(elements, output_format='html'):
+    if output_format == 'std_out':
+        for element in elements:
+            print(element)
+    elif output_format == 'html':
+        as_html = '<ul>'
+        for element in elements:
+            as_html += '<li>{}</li>'.format(element)
+        return as_html + '</ul>'
+    else:
+        raise RuntimeError('Uknown format {}'.format(output_format))

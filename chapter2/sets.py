@@ -17,3 +17,13 @@ def get_both_popular_and_active_users():
 def get_both_popular_and_active_users():
     # Assume both functions return a list of users
     return set(get_most_active_users()) & set(get_most_popuar_users())
+
+
+# Scenario 2: using set comprehensions to consisely generate sets
+# harmful
+users_first_names = set()
+for user in users:
+    users_first_names.add(user.first_name)
+
+# Idiomatic
+users_first_names = {user.first_name for user in users}

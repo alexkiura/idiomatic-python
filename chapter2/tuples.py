@@ -45,3 +45,18 @@ if age > 21:
 if age > 21:
     output = '{name} can drink!'.format(name=name)
     # using _, we don't have to define temp variables
+
+# Scenario 3: using tuples to unpack data
+# harmful
+list_from_csv_file = ['dog', 'Fido', 10]
+animal = list_from_csv_file[0]
+name = list_from_csv_file[1]
+age = list_from_csv_file[2]
+output = ('{name} the {animal} is {age} years old'.format(
+    animal=animal, name=name, age=age))
+
+# Idiomatic
+list_from_csv_file = ['dog', 'Fido', 10]
+(animal, name, age) = list_from_csv_file
+output = ('{name} the {animal} is {age} years old'.format(
+    animal=animal, name=name, age=age))

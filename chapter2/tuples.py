@@ -60,3 +60,42 @@ list_from_csv_file = ['dog', 'Fido', 10]
 (animal, name, age) = list_from_csv_file
 output = ('{name} the {animal} is {age} years old'.format(
     animal=animal, name=name, age=age))
+
+# Scenario 4: using tuples to return multiple values from a function
+# harmful
+from collections import Counter
+STATS_FORMAT = """Statistics:
+Mean: {mean}
+Median: {median}
+Mode: {mode}"""
+
+def calculate_mean(value_list):
+    return float(sum(value_list) / len(value_list))
+
+def calculate_median(value_list):
+    return value_list[int(len(value_list) / 2)]
+
+def calculate_mode(value_list):
+    return Counter(value_list).most_common(1)[0][0]
+
+values = [10, 20, 20, 30]
+mean = calculate_mean(values)
+median = calculate_median(values)
+mode = calculate_mode(values)
+print(STATS_FORMAT.format(mean=mean, median=median, mode=mode))
+
+# Idiomatic
+from collections import Counter
+STATS_FORMAT = """Statistics:
+Mean: {mean}
+Median: {median}
+Mode: {mode}"""
+
+def calculate_statistics(value_list):
+    mean = float(sum(value_list) / len(value_list))
+    median = value_list[int(len(value_list) / 2)]
+    mode = Counter(value_list).most_common(1)[0][0]
+    return (mean, median, mode)
+
+(mean, median, mode) = calculate_statistics([10, 20, 20, 30])
+print(STATS_FORMAT.format(mean=mean, median=median, mode=mode))

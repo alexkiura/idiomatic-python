@@ -31,3 +31,17 @@ def print_employee_information(db_connection):
     for result in results:
         employee = EmployeeRow._make(row)
         print(EMPLOYEE_INFO_FORMAT.format(**employee._asdict()))
+
+
+# Scenario 2: use _ as a placeholder for data in a tuple that should be ignored
+# harmful
+(name, age, temp, temp2) = get_user_info(user)
+if age > 21:
+    output = '{name} can drink!'.format(name=name)
+    # notice temp 1 and temp 2 are never used
+    # use an _ as shown below
+
+(name, age, _, _) = get_user_info(user)
+if age > 21:
+    output = '{name} can drink!'.format(name=name)
+    # using _, we don't have to define temp variables

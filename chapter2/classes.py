@@ -4,7 +4,7 @@
 
 # harmful
 class Blog():
-    __tablename = 'Blog'
+    __tablename__ = 'Blog'
 
     def table_name(self):
         return Blog.__tablename__

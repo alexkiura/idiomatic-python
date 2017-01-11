@@ -34,3 +34,32 @@ class DerivedBlog():
 
 b = DerivedBlog()
 print(b.tablename())  # prints derived blog
+
+
+# Scenario 2: using isinstance to determine the type of an object
+# harmful
+def get_size(some_object):
+    """.Returns len(some_object) for iterables
+    some_object for ints and floats
+    1 for any other type
+    """
+    try:
+        return len(some_object)
+
+    except TypeError:
+        if some_object in(True, False, type(None)):
+            return 1
+
+        else:
+            return int(some_object)
+
+# Idiomatic
+def get_size(some_object):
+    if isinstance(some_object, (list, dict, tuple, str)):
+        return len(some_object)
+
+    elif isinstance(some_object, (bool, type(None))):
+        return 1
+
+    elif isinstance(some_object, (int, float)):
+        return int(some_object)

@@ -183,3 +183,22 @@ class Foo():
 
 def log_to_console(instance):
     print(instance)
+
+# Scenario 6: using __str__ for a human readable representation
+# harmful
+class Point():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+# Idiomatic
+class Point():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return '({0}, {1})'.format(self.x, self.y)
+
+p = Point(10, 15)
+print(p)

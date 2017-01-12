@@ -130,3 +130,24 @@ q = Qux()
 b = Baz() # does not raise TypeError
 q.should_destroy_earth()
 q.id == 42
+
+# Scenrario 4: use properties to future proof class implementation
+# harmful
+class Product():
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+# Idiomatic
+class Product():
+    def __init__(self, name, price):
+        self.name = name
+        self._price = price
+
+    @property
+    def price(self):
+        return self._price * TAX_RATE
+
+    @price.setter
+    def price(self, value):
+        self._price = value

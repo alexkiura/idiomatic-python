@@ -151,3 +151,35 @@ class Product():
     @price.setter
     def price(self, value):
         self._price = value
+
+
+# Scenario 5: using _repr_ for a machine-readable representation of the class
+# harmful
+class Foo():
+    def __init__(self, bar=10, baz=12, cache=None):
+        self.bar = bar
+        self.baz = baz
+        self._cache = cache or {}
+
+    def __str__(self):
+        return 'Bar is {}, Baz is {}'.format(self.bar, self.baz)
+
+
+def log_to_console(instance):
+    print(instance)
+
+# instance
+class Foo():
+    def __init__(self, bar=10, baz=12, cache=None):
+        self.bar = bar
+        self.baz = baz
+        self._cache = cache or {}
+
+    def __str__(self):
+        return '{}, {}'.format(self.bar, self.baz)
+
+    def __repr__(self):
+        return 'Foo({}, {}, {})'.format(self.bar, self.baz, self._cache)
+
+def log_to_console(instance):
+    print(instance)

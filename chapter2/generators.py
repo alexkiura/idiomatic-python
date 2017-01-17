@@ -34,3 +34,4 @@ def get_twitter_stream_for_keyword_idiomatic(keyword):
 # we can safely loop through till we're tired
 for tweet in get_twitter_stream_for_keyword_idiomatic('#jeffknupp'):
     process_tweet(tweet)
+    

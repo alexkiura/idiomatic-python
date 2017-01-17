@@ -71,3 +71,22 @@ from django.db.models import CommaSeparatedIntegerField, DateField, DateTimeFiel
 # Idiomatic
 from django.db.models import (AutoField, BigIntegerField, BooleanField, CharField,
     CommaSeparatedIntegerField, DateField, DateTimeField)
+
+
+# Scenario 5: using __init__.py to simplify package interfaces
+# Harmful
+
+# If the Gizmo directory has an empty __init__.py file
+
+# Client code
+from gizmo.client.interface import Gizmo
+from gizmo.client.contrib.utils import GizmoHelper
+
+# Idiomatic
+
+# __init__.py code
+from gizmo.client.interface import Gizmo
+from gizmo.client.contrib.utils import GizmoHelper
+
+# Client code
+from gizmo import Gizmo, GizmoHelper

@@ -28,3 +28,11 @@ from flask import (Flask, request, session, g, redirect,url_for,
 import requests
 import this_project.utilities.sentient_network as skynet
 import this_project.widgets
+
+# Scenario 2: Prefer absolute to relative imports
+# Harmful
+from ..package import other_module
+
+# Idiomatic
+import package.other_module
+import package.other_module as other

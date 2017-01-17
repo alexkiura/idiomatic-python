@@ -49,3 +49,28 @@ def calculate_statistics2(value_list):
     value_list-- a list of integer values
     """
     return (value_list,)
+
+
+# Scenario 4: Using inline documentation sparingly
+# Harmful
+def calculate_mean(numbers):
+    """Return the mean of a list of numbers."""
+
+    # If the list is empty, we have no mean
+    if not numbers:
+        return 0
+
+    # A variable to keep track of the running sum
+    total = 0
+
+    # Iterate over each number in the list
+    for number in numbers:
+        total += number
+
+    # Divide the sum of all the numbers by the number of elements in the list
+    return total / len(numbers)
+
+# Idiomatic
+def calculate_mean2(numbers):
+    """Return the mean of a list of numbers."""
+    return sum(numbers) / len(numbers)

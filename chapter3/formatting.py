@@ -74,3 +74,23 @@ def calculate_mean(numbers):
 def calculate_mean2(numbers):
     """Return the mean of a list of numbers."""
     return sum(numbers) / len(numbers)
+
+
+# Scenario 5: Documenting what something does, not how
+# Harmful
+def is_prime(number):
+    """Mod all numbers from 2 -> number and return True
+    if the value is never zero."""
+    for candidate in range(2, number):
+        if number % candidate == 0:
+            print(candidate)
+            print(number % candidate)
+            return False
+    return number > 0
+
+def is_prime2(number):
+    """Return True if number is prime."""
+    for candidate in range(2, number):
+        if number % candidate == 0:
+            return False
+    return number > 0

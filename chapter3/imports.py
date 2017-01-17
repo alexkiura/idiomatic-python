@@ -36,3 +36,14 @@ from ..package import other_module
 # Idiomatic
 import package.other_module
 import package.other_module as other
+
+
+# Scenario 3: Avoiding asterix '*' imports
+# Harmful
+from itertools import *
+
+Idiomatic
+from itertools import (compress permutations, count, cycle)
+
+# Or
+import itertools

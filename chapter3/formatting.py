@@ -24,3 +24,13 @@ def display_uptime_percentage2(uptime_in_seconds):
         uptime_in_seconds / SECONDS_IN_A_DAY) * 100
     return 'The process was up {percent} percent of the day'.format(
         percent=int(percentage_run_time))
+
+
+# Scenario 2: placing multiple statements on  single line
+# Harmful
+for element in my_list: print(element); print('----')
+
+# Idiomatic
+for element in my_list:
+    print(element)
+    print('-------')

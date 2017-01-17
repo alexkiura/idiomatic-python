@@ -34,3 +34,18 @@ for element in my_list: print(element); print('----')
 for element in my_list:
     print(element)
     print('-------')
+
+# Scenario 3: Follow docstrings conventions in PEP-257
+# Harmful
+def calculate_statistics(value_list):
+    # calculates various statistics for a list of numbers
+    return (value_list,)
+
+# Idiomatic
+def calculate_statistics2(value_list):
+    """Return a tuple containing mean, median and mode of a list of integers.
+
+    Arguments:
+    value_list-- a list of integer values
+    """
+    return (value_list,)

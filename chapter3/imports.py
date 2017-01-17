@@ -47,3 +47,18 @@ from itertools import (compress permutations, count, cycle)
 
 # Or
 import itertools
+
+
+# Scenario 4: Using a try block to determine if a package is available
+# Harmful
+import cProfile
+# Uh-oh! The user does not have cProfile installed
+print(cProfile.__all__)
+
+# Idiomatic
+try: 
+    import cProfile as profiler
+except:
+    import profile as profiler
+
+print(profiler.__all__)

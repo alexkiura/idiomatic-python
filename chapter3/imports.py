@@ -62,3 +62,12 @@ except:
     import profile as profiler
 
 print(profiler.__all__)
+
+# Scenario 5: Using tuples to organize long list of module to import
+# Harmful
+from django.db.models import AutoField, BigIntegerField, BooleanField, CharField
+from django.db.models import CommaSeparatedIntegerField, DateField, DateTimeField
+
+# Idiomatic
+from django.db.models import (AutoField, BigIntegerField, BooleanField, CharField,
+    CommaSeparatedIntegerField, DateField, DateTimeField)

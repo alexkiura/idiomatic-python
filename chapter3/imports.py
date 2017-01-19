@@ -122,3 +122,10 @@ if __name__ == '__main__':
 
     if second_number != 0:
         print(divide(first_number, second_number))
+
+
+# Scenario 7: Making python scripts directly executable
+
+# Idiomatic
+# Adding a shebang to make the script directly executable
+#! /usr/bin/env python

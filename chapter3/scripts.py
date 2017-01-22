@@ -84,3 +84,20 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
+# Scenario 9: Using sys.argv to reference command line parameters
+# Harmful
+import argparse 
+
+if __name__ == '__main__.py':
+    parser = argparse.ArgumentParser(usage='scripts.py <filename>')
+    parser.add_argument('filename', help='The name of the file to use')
+    parsed = parser.parse_args(sys.argv)
+    print(open(parsed['filename']).read())
+
+# Idiomatic
+if __name__ == '__main__':
+    try:
+        print(open(sys.argv[1]).read())
+    except IndexError:
+        print('You forgot the file name:')

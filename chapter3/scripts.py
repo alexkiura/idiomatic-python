@@ -56,3 +56,31 @@ if __name__ == '__main__':
 # Idiomatic
 # Adding a shebang to make the script directly executable
 #! /usr/bin/env python
+
+# Scenario 8: using sys.exit to return proper exit codes
+# Harmful
+if __name__ == '__main__':
+    import sys
+    # What happens if no args are passed on the command line?
+    if len(sys.argv) > 1:
+        argument = sys.argv[1]
+        result = do_stuff(argument)
+
+        if result:
+            do_stuff_with_result(result)
+
+
+# Idiomatic
+def main():
+    import sys
+    if len(sys.argv) < 2:
+        sys.exit('You forgot to pass an argument')
+    argument = sys.argv[1]
+    result = do_stuff(argument)
+    if not result:
+        sys.exit(1)
+    do_stuff_with_result(result)
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
